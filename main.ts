@@ -16,6 +16,10 @@ if (!entry.trim()) {
 if (entry.includes("\n")) {
   throw new Error("entry must be a single line");
 }
+// The joke is the swap: "traffic" must become "traffickers".
+if (!entry.includes("traffic") || !entry.includes("traffickers")) {
+  throw new Error("entry must contain the autocorrect swap (traffic -> traffickers)");
+}
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
 mkdirSync(outDir, { recursive: true });
